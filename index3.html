@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>shadow</title>
+</head>
+
+	<canvas id="mainCanvas" width="800" height="400" style="border: 1px red solid;" ></canvas>
+	
+	
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script src="index.js"></script>
+	<script>
+				
+				
+		var mainCanvas = document.getElementById('mainCanvas');
+		var mainCtx = mainCanvas.getContext('2d');
+
+		var n1 = createNode(mainCtx);
+		
+		// 创建一个节点
+		function createNode(ctx) {
+			
+			var alpha = 0.5;
+			
+			var x = 10;
+			var y = 10;
+			
+			var radius = 5;
+			
+			ctx.shadowColor = ('rgba(0,0,0,' + alpha + ')');
+			//
+			ctx.shadowOffsetX = 15000;
+			ctx.shadowOffsetY = 15000;
+			ctx.shadowBlur = radius;
+
+			ctx.beginPath();
+			ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
+		}
+
+
+	</script>
+
+<body>
+</html>
